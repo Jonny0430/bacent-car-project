@@ -1,14 +1,5 @@
 import { registerEnumType } from '@nestjs/graphql';
 
-// export enum PropertyType {
-// 	APARTMENT = 'APARTMENT',
-// 	VILLA = 'VILLA',
-// 	HOUSE = 'HOUSE',
-// }
-// registerEnumType(PropertyType, {
-// 	name: 'PropertyType',
-// });
-
 export enum PropertyType {
 	SKODA = 'SKODA', // Sedan
 	WALLPAPER = 'WALLPAPER', // SUV (Sport Utility Vehicle)
