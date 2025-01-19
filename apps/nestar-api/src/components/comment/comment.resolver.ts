@@ -48,14 +48,13 @@ export class CommentResolver {
 		return await this.commentService.getComments(memberId, input);
 	}
 
-    /**ADMIN MAX */
-    @Roles(MemberType.ADMIN)
-    @UseGuards(RolesGuard)
-    @Mutation((returns) => Comment)
-    public async removeCommentByAdmin(@Args('commentId') input: string): Promise<Comment>{
-        console.log(`Mutation: removeCommentByAdmin`);
-        const commentId = shapeIntoMongoObjectId(input);
-        return await this.commentService.removeCommentByAdmin(commentId)
-    }
-
+	/**ADMIN MAX */
+	@Roles(MemberType.ADMIN)
+	@UseGuards(RolesGuard)
+	@Mutation((returns) => Comment)
+	public async removeCommentByAdmin(@Args('commentId') input: string): Promise<Comment> {
+		console.log(`Mutation: removeCommentByAdmin`);
+		const commentId = shapeIntoMongoObjectId(input);
+		return await this.commentService.removeCommentByAdmin(commentId);
+	}
 }

@@ -29,23 +29,27 @@ export class FollowResolver {
 		return await this.followService.unsubscribe(memberId, followingId);
 	}
 
-    @UseGuards(WithoutGuard)
+	@UseGuards(WithoutGuard)
 	@Query((returns) => Followings)
-	public async getMemberFollowings(@Args('input') input: FollowInquiry, @AuthMember('_id') memberId: ObjectId): Promise<Followings> {
+	public async getMemberFollowings(
+		@Args('input') input: FollowInquiry,
+		@AuthMember('_id') memberId: ObjectId,
+	): Promise<Followings> {
 		console.log('Muttation: getMemberFollowings');
-        const { followerId } = input.search;
+		const { followerId } = input.search;
 		input.search.followerId = shapeIntoMongoObjectId(followerId);
 		return await this.followService.getMemberFollowings(memberId, input);
 	}
 
-    @UseGuards(WithoutGuard)
+	@UseGuards(WithoutGuard)
 	@Query((returns) => Followers)
-	public async getMemberFollowers(@Args('input') input: FollowInquiry, @AuthMember('_id') memberId: ObjectId): Promise<Followers> {
+	public async getMemberFollowers(
+		@Args('input') input: FollowInquiry,
+		@AuthMember('_id') memberId: ObjectId,
+	): Promise<Followers> {
 		console.log('Muttation: getMemberFollowers');
-        const { followingId } = input.search;
+		const { followingId } = input.search;
 		input.search.followingId = shapeIntoMongoObjectId(followingId);
 		return await this.followService.getMemberFollowers(memberId, input);
 	}
-
-
 }

@@ -10,14 +10,17 @@ import { registerEnumType } from '@nestjs/graphql';
 // });
 
 export enum PropertyType {
-	SEDAN = 'SEDAN', // Sedan
-	SUV = 'SUV', // SUV (Sport Utility Vehicle)
-	COUPE = 'KUPÉ', // Kupe
-	CONVERTIBLE = 'AYLANUVCHAN', // Aylanadigan tomli mashina
-	HATCHBACK = 'HATCHBEK', // Hatchbek
-	TRUCK = 'YUKAVTO', // Yuk avtomobili
-	VAN = 'MINIVAN', // Minivan
+	SKODA = 'SKODA', // Sedan
+	WALLPAPER = 'WALLPAPER', // SUV (Sport Utility Vehicle)
+	BMW = 'BMW', // Aylanadigan tomli mashina
+	MUSTANG = 'MUSTANG',
+	SPORTS = 'SPORTS',
+	MERCEDES = 'MERCEDES',
+	OTHER = 'OTHER',
 }
+registerEnumType(PropertyType, {
+	name: 'PropertyType',
+});
 
 export enum PropertyStatus {
 	ACTIVE = 'ACTIVE',
